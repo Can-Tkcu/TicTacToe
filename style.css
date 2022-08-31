@@ -1,11 +1,25 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
 tr {
     width: 399px;
 }
 
 td {
+    position: relative;
     width: 133px;
     height: 133px;
     border: 5px solid black;
+    cursor: pointer;
+}
+
+td:hover{
+    background-color: rgba(46, 46, 46, 0.1)
 }
 
 table {
@@ -26,4 +40,16 @@ table tr:last-child td {
 
 table tr td:last-child {
     border-right: 0;
+}
+
+.shape {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 30px;
+    left: 30px;
+}
+
+.d-none{
+    display: none;
 }

@@ -86,7 +86,7 @@ function diagonalWins(){
   }
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -Misc-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --Misc--
 
 function playerOneIsActive() {
   document.getElementById("player-1").classList.add("player-inactive");
@@ -99,7 +99,7 @@ function playerTwoIsActive() {
 }
 
 function ifNoWinner(){
-  if (fields[0] && fields[1] && fields[2] && fields[3] && fields[4] && fields[5] && fields[6] && fields[7] && fields[8] && winner == undefined ) {
+    if (fields[0] && fields[1] && fields[2] && fields[3] && fields[4] && fields[5] && fields[6] && fields[7] && fields[8] && winner == undefined ) {
     gameOver = true;
     AUDIO_GAME_OVER.play();
     setTimeout(function () {

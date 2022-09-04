@@ -6,6 +6,27 @@ body {
     flex-direction: column;
     margin: 0;
     background-color: honeydew;
+    position: relative;
+}
+
+.restart-btn{
+ z-index: 4;
+ width: 200px;
+ height: 100px;
+ font-family: 'Play';
+ font-size: 26px;
+ color: white;
+ cursor: pointer;
+ position: absolute;
+ bottom: 100px!important;
+ background-color:#1C0B7F ;
+ border: 2px solid  rgba(0, 0, 0, 0.5);
+ scale: 1;
+}
+
+.restart-btn:hover {
+    background-color: #5d4bc2;
+    scale: 1.1;
 }
 
 .game-over {

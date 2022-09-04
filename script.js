@@ -3,9 +3,9 @@ let winner;
 let gameOver = false;
 let currentShape = "cross";
 let AUDIO_CROSS = new Audio("audio/cross.mp3");
-AUDIO_CROSS.volume = 0.2;
+AUDIO_CROSS.volume = 0.17;
 let AUDIO_CIRCLE = new Audio("audio/circle.mp3");
-AUDIO_CIRCLE.volume = 0.2;
+AUDIO_CIRCLE.volume = 0.17;
 let AUDIO_GAME_OVER = new Audio("audio/game_over.mp3");
 AUDIO_GAME_OVER.volume = 0.4;
 
@@ -88,22 +88,13 @@ function diagonalWins(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --Misc--
 
-function playerOneIsActive() {
-  document.getElementById("player-1").classList.add("player-inactive");
-  document.getElementById("player-2").classList.remove("player-inactive");
-}
-
-function playerTwoIsActive() {
-  document.getElementById("player-1").classList.remove("player-inactive");
-  document.getElementById("player-2").classList.add("player-inactive");
-}
-
 function ifNoWinner(){
     if (fields[0] && fields[1] && fields[2] && fields[3] && fields[4] && fields[5] && fields[6] && fields[7] && fields[8] && winner == undefined ) {
     gameOver = true;
     AUDIO_GAME_OVER.play();
     setTimeout(function () {
       document.getElementById("game-is-over").classList.remove("d-none");
+      document.getElementById('restart').classList.remove('d-none');
     }, 750);
     printAllLines();
   }
@@ -115,17 +106,56 @@ function gameIsOver() {
     AUDIO_GAME_OVER.play();
     setTimeout(function () {
       document.getElementById("game-is-over").classList.remove("d-none");
+      document.getElementById('restart').classList.remove('d-none');
     }, 750);
   }
 }
 
-function printAllLines() {
-    document.getElementById("line-0").style.transform = "scaleX(1.0)";
-    document.getElementById("line-1").style.transform = "scaleX(1.0)";
-    document.getElementById("line-2").style.transform = "scaleX(1.0)";
-    document.getElementById("line-5").style.transform = "rotate(90deg) scaleX(1.0)";
-    document.getElementById("line-3").style.transform = "rotate(90deg) scaleX(1.0)";
-    document.getElementById("line-4").style.transform = "rotate(90deg) scaleX(1.0)";
-    document.getElementById("line-7").style.transform = "rotate(45deg) scaleX(1.0)";
-    document.getElementById("line-6").style.transform = "rotate(135deg) scaleX(1.0)";
+function restartGame() {
+  for (let i = 0; i < 9; i++) { 
+  document.getElementById("circle-" + i).classList.add("d-none");
+  document.getElementById("cross-" + i).classList.add("d-none");
+  }
+  document.getElementById("game-is-over").classList.add("d-none");
+  document.getElementById('restart').classList.add('d-none');
+  currentShape = "cross";
+  winner = undefined;
+  gameOver = false;
+  playerTwoIsActive();
+  resetAllLines();
+  fields = [];
 }
+
+function printAllLines() {
+  document.getElementById("line-0").style.transform = "scaleX(1.0)";
+  document.getElementById("line-1").style.transform = "scaleX(1.0)";
+  document.getElementById("line-2").style.transform = "scaleX(1.0)";
+  document.getElementById("line-5").style.transform = "rotate(90deg) scaleX(1.0)";
+  document.getElementById("line-3").style.transform = "rotate(90deg) scaleX(1.0)";
+  document.getElementById("line-4").style.transform = "rotate(90deg) scaleX(1.0)";
+  document.getElementById("line-7").style.transform = "rotate(45deg) scaleX(1.0)";
+  document.getElementById("line-6").style.transform = "rotate(135deg) scaleX(1.0)";
+}
+
+function resetAllLines(){
+  document.getElementById("line-0").style.transform = "scaleX(0.0)";
+  document.getElementById("line-1").style.transform = "scaleX(0.0)";
+  document.getElementById("line-2").style.transform = "scaleX(0.0)";
+  document.getElementById("line-5").style.transform = "rotate(90deg) scaleX(0.0)";
+  document.getElementById("line-3").style.transform = "rotate(90deg) scaleX(0.0)";
+  document.getElementById("line-4").style.transform = "rotate(90deg) scaleX(0.0)";
+  document.getElementById("line-7").style.transform = "rotate(45deg) scaleX(0.0)";
+  document.getElementById("line-6").style.transform = "rotate(135deg) scaleX(0.0)";
+}
+
+function playerOneIsActive() {
+  document.getElementById("player-1").classList.add("player-inactive");
+  document.getElementById("player-2").classList.remove("player-inactive");
+}
+
+function playerTwoIsActive() {
+  document.getElementById("player-1").classList.remove("player-inactive");
+  document.getElementById("player-2").classList.add("player-inactive");
+}
+
+

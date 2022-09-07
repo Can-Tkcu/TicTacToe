@@ -9,19 +9,19 @@ body {
     position: relative;
 }
 
-.restart-btn{
- z-index: 4;
- width: 200px;
- height: 100px;
- font-family: 'Play';
- font-size: 26px;
- color: white;
- cursor: pointer;
- position: absolute;
- bottom: 100px!important;
- background-color:#1C0B7F ;
- border: 2px solid  rgba(0, 0, 0, 0.5);
- scale: 1;
+.restart-btn {
+    z-index: 4;
+    width: 200px;
+    height: 100px;
+    font-family: 'Play';
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    bottom: 100px !important;
+    background-color: #1C0B7F;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    scale: 1;
 }
 
 .restart-btn:hover {
@@ -38,9 +38,9 @@ body {
     object-fit: contain;
 }
 
-.player{
-   font-family: 'Play'; 
-   font-weight: 600;
+.player {
+    font-family: 'Play';
+    font-weight: 600;
 }
 
 .player-panel {
@@ -171,7 +171,9 @@ table tr td:last-child {
     }
 }
 
-@media (max-width: 375px) {
+/* RESPONSIVE DOWN TO 300px width */
+
+@media (max-width: 450px) {
 
     body {
         justify-content: space-between;
@@ -199,4 +201,20 @@ table tr td:last-child {
         width: 375px;
     }
 
+    .player-panel {
+        font-size: 20px;
+        margin-top: 20px;
+    }
+
+    .player-panel img {
+        width: 45px;
+        height: 45px;
+    }
+
+}
+
+@media (max-width: 330px) {
+    .player-panel {
+        font-size: 16px;
+    }
 }
